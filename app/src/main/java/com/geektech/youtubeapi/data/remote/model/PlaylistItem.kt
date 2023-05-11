@@ -1,10 +1,9 @@
-package com.geektech.youtubeapi.model
+package com.geektech.youtubeapi.data.remote.model
 
-data class Playlist(
+data class PlaylistItem(
     val etag: String?,
     val items: List<Item?>?,
     val kind: String?,
-    val nextPageToken: String?,
     val pageInfo: PageInfo?
 ) {
     data class Item(
@@ -15,27 +14,31 @@ data class Playlist(
         val snippet: Snippet?
     ) {
         data class ContentDetails(
-            val itemCount: Int?
+            val videoId: String?,
+            val videoPublishedAt: String?
         )
 
         data class Snippet(
             val channelId: String?,
             val channelTitle: String?,
             val description: String?,
-            val localized: Localized?,
+            val playlistId: String?,
+            val position: Int?,
             val publishedAt: String?,
+            val resourceId: ResourceId?,
             val thumbnails: Thumbnails?,
-            val title: String?
+            val title: String?,
+            val videoOwnerChannelId: String?,
+            val videoOwnerChannelTitle: String?
         ) {
-            data class Localized(
-                val description: String?,
-                val title: String?
+            data class ResourceId(
+                val kind: String?,
+                val videoId: String?
             )
 
             data class Thumbnails(
                 val default: Default?,
                 val high: High?,
-                val maxres: Maxres?,
                 val medium: Medium?,
                 val standard: Standard?
             ) {
@@ -46,12 +49,6 @@ data class Playlist(
                 )
 
                 data class High(
-                    val height: Int?,
-                    val url: String?,
-                    val width: Int?
-                )
-
-                data class Maxres(
                     val height: Int?,
                     val url: String?,
                     val width: Int?

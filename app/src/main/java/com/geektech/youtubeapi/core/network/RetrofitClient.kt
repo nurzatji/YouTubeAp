@@ -1,6 +1,7 @@
-package com.geektech.youtubeapi.remote
+package com.geektech.youtubeapi.core.network
 
 import com.geektech.youtubeapi.BuildConfig
+import com.geektech.youtubeapi.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
